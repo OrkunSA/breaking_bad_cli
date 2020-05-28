@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/breaking_bad_cli.rb'
+
+Pry.start
