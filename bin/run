@@ -2,5 +2,5 @@
 
 require_relative '../lib/breaking_bad_cli.rb'
 
-#Cli.new.run
+Cli.new.call
 
