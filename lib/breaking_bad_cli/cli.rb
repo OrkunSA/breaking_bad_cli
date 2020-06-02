@@ -28,7 +28,8 @@ class Cli
         id = valid_id?(prompt_selection)
         updated_character = get_character_details(id)
         print_details(updated_character)
-       
+        print_continue
+        continue?
     end
         
 
