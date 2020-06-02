@@ -1,41 +1,28 @@
 class Api
-
-    URL = "https://breakingbadapi.com/api/"
-
+    #In this class I get all the character/quote details by calling API
 
     def self.get_character
-        response = RestClient.get(URL + "characters/?limit=50")
+        url = "https://breakingbadapi.com/api/characters"
+        response = RestClient.get(url)
         data = JSON.parse(response.body)
-        data.each do |character|
-            id = character['char_id']
-            name = character['name']
-            Character.new(name, id)
-        end
-    end 
+        data.each do |c|
+            Character.new(c["char_id"], c["name"], c["birthday"], c["occupation"], c["nickname"], c["appearance"], c["portrayed"])
 
-    
-    def self.get_details_by_id(id)
-        selected_character = Character.find_by_id(id)
-        response = RestClient.get("#{URL}" + "characters/?limit=50" + "#{id}")
-        data = JSON.parse(response.body)
-        data = data[0]
-        birthday = data["birthday"]
-        occupation = data["occupation"].join(" , ")
-        nickname = data["nickname"]
-        appearance = data["appearance"].join(" , ")
-        portrayed = data["portrayed"]
-        selected_character.update(birthday, occupation, nickname, appearance, portrayed)
-        selected_character
+        end
     end
-    
-    def self.get_quote
-        res = RestClient.get(URL + "quotes/?limit=100")
-        data = JSON.parse(res.body)
+
+    def self.get_quotes
+        url = "https://breakingbadapi.com/api/quotes"
+        response = RestClient.get(url)
+        data = JSON.parse(response.body)
         data.each do |q|
-            quote = q['quote']
-            character =  q['author']
-            Quote.new(quote, character)
+            Quote.new(q["author"], q["quote"])
+            #I only instantiated author and quote 
         end
     end
-
 end
+
+    
+  
+   
+
