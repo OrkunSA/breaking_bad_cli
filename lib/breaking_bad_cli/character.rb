@@ -1,48 +1,39 @@
 class Character
-    attr_reader :name, :id
-    attr_accessor :birthday, :occupation, :nickname, :appearance, :portrayed 
+    attr_accessor :char_id, :name, :birthday, :occupation, :nickname, :appearance, :portrayed
+    
     @@all = []
 
-    def initialize(name, id)
+    def initialize(char_id, name, birthday, occupation, nickname, appearance, portrayed)
+        @char_id = char_id
         @name = name
-        @id = id 
-        @quotes = 
-        @@all << self
+        @birthday = birthday
+        @occupation = occupation
+        @nickname = nickname
+        @appearance = appearance
+        @portrayed = portrayed
+        @quotes = []
+        @@all << self #save all attributes to class variable.
     end
-
-    def quotes
-        Quote.all.select do |quote|
-            quote.character == self 
-        end
-    end
-
-
-
-
 
     def self.all
-        @@all 
+        @@all
     end
-
-
+    
 
     def self.find_by_id(id)
         index = id.to_i - 1
         all[index]
     end
 
-    def update(birthday, occupation, nickname, appearance, portrayed)
-        self.birthday = birthday 
-        self.occupation = occupation
-        self.nickname = nickname
-        self.appearance = appearance
-        self.portrayed = portrayed
+    def quotes
+        Quote.all.select {|quote| quote.author == self.name}
     end
 
 
-    
-
-
-
-
 end
+
+
+
+
+
+
