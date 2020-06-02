@@ -5,17 +5,18 @@ This CLI gem gets the data from an external data source (https://breakingbadapi.
 ## Installation
 This gem is not published, so this will have to be cloned to your machine. In your terminal type:
 
-$ git clone https://github.com/OrkunSA/breaking_bad_cli.git
+    $ git clone https://github.com/OrkunSA/breaking_bad_cli.git
 
 And then install bundle
 
-$ bundle
+    $ bundle
+
 
 ## Usage
 
 Type this in your terminal and follow the CLI prompts!
 
-$ ruby bin/run
+    $ ruby bin/run
 
 ## Development
 
@@ -33,7 +34,6 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the CovidTracking project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'joel-kelly'/covid_tracking/blob/master/CODE_OF_CONDUCT.md).
 
 
 
