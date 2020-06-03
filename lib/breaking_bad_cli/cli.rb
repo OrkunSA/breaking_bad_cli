@@ -135,6 +135,7 @@ class Cli
 
     def continue?(choice)
         if choice == "y"
+            system("clear")
             print_main_menu
             main_menu_selection
         else
